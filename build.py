@@ -6,18 +6,18 @@ Pipeline:
   1. read  src/app_template.html            (app source, with __ICON*__ placeholders)
   2. extract the inline <script>, write a temp check.js, run `node --check`
   3. inject the base64 icons from src/icons_b64.py into the placeholders
-  4. write docs/index.html  (named index.html for root hosting / Netlify)
-  5. copy  src/sw.js -> docs/sw.js
+  4. write docs/vigor/index.html  (named index.html for root hosting / Netlify)
+  5. copy  src/sw.js -> docs/vigor/sw.js
 
 Output dir can be overridden:  VIGOR_OUT=/path/to/deploy python3 build.py
 
-Deploy:  deploy the docs/ folder on an HTTPS host.
+Deploy:  deploy the docs/vigor/ folder on an HTTPS host.
 """
 import os, re, sys, shutil, subprocess, pathlib, base64, json
 
 ROOT = pathlib.Path(__file__).parent.resolve()
 SRC  = ROOT / "src"
-OUT  = pathlib.Path(os.environ.get("VIGOR_OUT", ROOT / "docs"))
+OUT  = pathlib.Path(os.environ.get("VIGOR_OUT", ROOT / "docs" / "vigor"))
 
 sys.path.insert(0, str(SRC))
 import icons_b64  # noqa: E402  (ICONS = {"180":..., "192":..., "512":...})

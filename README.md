@@ -23,16 +23,24 @@ worker and the Android "Install app" prompt.
 See **CLAUDE.md** for architecture/conventions and **HANDOFF.md** for state + roadmap.
 
 ## Apps in this repo
-Three separate, independently installable PWAs, all served by GitHub Pages from `docs/`:
+Three separate, independently installable PWAs, served by GitHub Pages from `docs/`:
 
 | App | Link | Source |
 |---|---|---|
-| Vigor (workouts) | https://danga1967.github.io/Vigor/ | `src/` → built into `docs/` by `build.py` |
+| Vigor (workouts) | https://danga1967.github.io/Vigor/vigor/ | `src/` -> built into `docs/vigor/` by `build.py` |
 | 日本語道 (Japanese) | https://danga1967.github.io/Vigor/japanese/ | edited directly in `docs/japanese/` |
 | Stride (half marathon) | https://danga1967.github.io/Vigor/stride/ | edited directly in `docs/stride/` |
 
-Each app has its own `manifest.json`, `icons/`, and `sw.js` (so each installs on its own and
-keeps its own offline cache). **Edit the `docs/japanese/` and `docs/stride/` files directly —
-`build.py` only regenerates Vigor's files** and never touches those two folders. When you
-change an app, bump its cache name in `sw.js` so installed copies refresh. Vigor's service
-worker deliberately ignores requests under `japanese/` and `stride/`.
+Launcher page with all three links: https://danga1967.github.io/Vigor/
+
+**Why each app is in a sibling folder:** an installed PWA captures every link inside its
+`scope` (its folder and everything under it). If one app lived at the top of the site it
+would swallow the other two apps' links. So keep the apps side by side, and **never put a
+`manifest.json` or a working service worker in the `docs/` root** (the root `sw.js` is a
+retired clean-up script for old installs, and `docs/index.html` is a plain launcher page).
+
+Each app has its own `manifest.json`, `icons/`, and `sw.js`, and keeps its own offline cache
+(cache names are prefixed `vigor-` / `nihongo-` / `stride-`, and each service worker only
+deletes its own prefix, because all three share one origin). `build.py` only regenerates
+Vigor's folder. When you change an app, bump its cache name in `sw.js` so installed copies
+refresh.

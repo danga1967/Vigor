@@ -25,7 +25,7 @@ self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(names) {
       return Promise.all(
-        names.filter(function(name) { return name !== CACHE_NAME; })
+        names.filter(function(name) { return name.indexOf('nihongo-') === 0 && name !== CACHE_NAME; })
              .map(function(name) { return caches.delete(name); })
       );
     })
