@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.check.js
+src/icon_preview.png
