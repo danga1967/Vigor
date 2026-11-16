@@ -1,0 +1,26 @@
+{
+  "name": "日本語道 — The Path of Japanese",
+  "short_name": "日本語道",
+  "description": "Japanese language learning app",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1a0a0a",
+  "background_color": "#1a0a0a",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

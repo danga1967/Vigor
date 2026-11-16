@@ -3,7 +3,12 @@
    The folder it lives in becomes its scope, so keep Vigor in its own
    directory (e.g. /vigor/index.html + /vigor/sw.js) to avoid caching
    other pages that share a parent folder. */
-const CACHE = 'vigor-v3';
+const CACHE = 'vigor-v4';
+
+// Other apps live in sub-folders of this one (japanese/, stride/) and have their
+// own service workers. Never handle their requests here.
+const OTHER_APPS = ['japanese/', 'stride/'];
+const SCOPE_PATH = new URL('./', self.location).pathname;
 
 self.addEventListener('install', e => {
   self.skipWaiting();
@@ -21,6 +26,8 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
+  const path = new URL(req.url).pathname;
+  if (OTHER_APPS.some(a => path.startsWith(SCOPE_PATH + a))) return;
 
   // App page: network-first so updates land, fall back to cache offline.
   if (req.mode === 'navigate') {
