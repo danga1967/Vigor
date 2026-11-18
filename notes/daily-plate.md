@@ -17,7 +17,7 @@ Phone-first meal checklist and nutrition tracker for Dan. Single file: `index.ht
 7:00 AM: hot lemon water, Beekeeper's propolis, Yoder's Good Health Recipe (1 tbsp).
 12:00 PM: AG1, 2 eggs, 1 slice homemade wheat toast, Celsius.
 2:30 PM: 1/2 cup homemade Greek yogurt, 1/2 cup homemade granola, 1/2 cup whole milk.
-4:00 PM: fairlife Nutrition Plan shake (30 g protein), StarKist Tuna Creations Hot Buffalo, 2 prunes.
+4:00 PM: fairlife Nutrition Plan shake (30 g protein), StarKist Tuna Creations Hot Buffalo, 2 prunes, kiwi.
 5:00 PM: dinner, empty by default (chicken/salmon/steak preset buttons).
 
 ## Data notes
