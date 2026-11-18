@@ -23,15 +23,16 @@ worker and the Android "Install app" prompt.
 See **CLAUDE.md** for architecture/conventions and **HANDOFF.md** for state + roadmap.
 
 ## Apps in this repo
-Three separate, independently installable PWAs, served by GitHub Pages from `docs/`:
+Four separate, independently installable PWAs, served by GitHub Pages from `docs/`:
 
 | App | Link | Source |
 |---|---|---|
 | Vigor (workouts) | https://danga1967.github.io/Vigor/vigor/ | `src/` -> built into `docs/vigor/` by `build.py` |
 | 日本語道 (Japanese) | https://danga1967.github.io/Vigor/japanese/ | edited directly in `docs/japanese/` |
 | Stride (half marathon) | https://danga1967.github.io/Vigor/stride/ | edited directly in `docs/stride/` |
+| Daily Plate (meals) | https://danga1967.github.io/Vigor/plate/ | edited directly in `docs/plate/` (notes: `notes/daily-plate.md`) |
 
-Launcher page with all three links: https://danga1967.github.io/Vigor/
+Launcher page with all the links: https://danga1967.github.io/Vigor/
 
 **Why each app is in a sibling folder:** an installed PWA captures every link inside its
 `scope` (its folder and everything under it). If one app lived at the top of the site it
@@ -40,7 +41,7 @@ would swallow the other two apps' links. So keep the apps side by side, and **ne
 retired clean-up script for old installs, and `docs/index.html` is a plain launcher page).
 
 Each app has its own `manifest.json`, `icons/`, and `sw.js`, and keeps its own offline cache
-(cache names are prefixed `vigor-` / `nihongo-` / `stride-`, and each service worker only
+(cache names are prefixed `vigor-` / `nihongo-` / `stride-` / `plate-`, and each service worker only
 deletes its own prefix, because all three share one origin). `build.py` only regenerates
 Vigor's folder. When you change an app, bump its cache name in `sw.js` so installed copies
 refresh.
