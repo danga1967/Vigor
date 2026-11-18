@@ -14,8 +14,8 @@ Phone-first meal checklist and nutrition tracker for Dan. Single file: `index.ht
 - Show nutrition per food and track vitamins/minerals against adult-male targets (fiber, Ca, Fe, K, Mg, Zn, D, B12, C, A, folate; sodium and caffeine as limits).
 
 ## Daily staples (template in `STAPLES`)
-7:00 AM: hot lemon water, Beekeeper's propolis, Yoder's Good Health Recipe (1 tbsp), AG1.
-12:00 PM: 2 eggs, 1 slice homemade wheat toast, Celsius.
+7:00 AM: hot lemon water, Beekeeper's propolis, Yoder's Good Health Recipe (1 tbsp), AG1, Celsius.
+12:00 PM: 2 eggs, 1 slice homemade wheat toast.
 2:30 PM: 1/2 cup homemade Greek yogurt, 1/2 cup homemade granola, 1/2 cup whole milk.
 4:00 PM: fairlife Nutrition Plan shake (30 g protein), StarKist Tuna Creations Hot Buffalo, 2 prunes, kiwi.
 5:00 PM: dinner, empty by default (chicken/salmon/steak preset buttons).

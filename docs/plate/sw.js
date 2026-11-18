@@ -1,7 +1,7 @@
 /* Daily Plate service worker - offline + installability.
    Lives in its own folder (its scope). All apps on this site share one origin, so only
    ever delete caches that start with this app's prefix. Bump CACHE to force a refresh. */
-const CACHE = 'plate-v4';
+const CACHE = 'plate-v5';
 const PREFIX = 'plate-';
 
 self.addEventListener('install', e => {
